@@ -1,4 +1,4 @@
-# Group Infomation
+# Group Information
 
 ------
 groupmember
