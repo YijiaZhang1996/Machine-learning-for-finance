@@ -1,9 +1,9 @@
 # Group Member
 
-Zhang Yijia,1801212815,YijiaZhang1996:[GitHub link](https://github.com/YijiaZhang1996)
-Deng Ying,1801212782,dy0703[GitHub link](https://github.com/dy0703)
-Chen Zhuo,1901212461,Igloo7:[GitHub link](https://github.com/Igloo7/Igloo)
-Wang Congyuan,1901212637,cy-wang15:[GitHub link](https://github.com/cy-wang15)
+>* Zhang Yijia,1801212815,YijiaZhang1996:[GitHub link](https://github.com/YijiaZhang1996)
+>* Deng Ying,1801212782,dy0703[GitHub link](https://github.com/dy0703)
+>* Chen Zhuo,1901212461,Igloo7:[GitHub link](https://github.com/Igloo7/Igloo)
+>* Wang Congyuan,1901212637,cy-wang15:[GitHub link](https://github.com/cy-wang15)
 
 # Research Topic
 O2O Coupon Consumption Prediction Based on Past Consumer Behavior 
