@@ -14,7 +14,7 @@ In recent years, O2O (Online to Offline) consumption has gradually entered peopl
 
 # Research Purpose
 
-This project aims to predict users' usage within 15 days after receiving coupons by analyzing and modeling their past online and offline consumption behaviors, so as to realize personalized coupon delivery. Make consumer gets real benefit, also give businessman stronger sale ability at the same time.
+This project aims to predict users' usage within 15 days after receiving coupons by analyzing and modeling their past offline consumption behaviors, so as to realize personalized coupon delivery. Make consumer gets real benefit, also give businessman stronger sale ability at the same time.
 
 # Data Description
 There are two main tables in this project. They are:
