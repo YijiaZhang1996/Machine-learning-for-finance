@@ -30,13 +30,13 @@ Table1 Users' Offline Consumption and Coupon Collection Behavior
 |Merchant_id|	Merchant ID
 |Coupon_id|	"Null" means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.
 |Discount_rate|	Represents the discount rate; x: y means x minus y. Unit: Yuan
-|Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.|
-|Date_received|	The date of receiving the coupon.|
-|Date|Consumption date:
- if (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; 
+|Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.
+|Date_received|	The date of receiving the coupon.
+|Date|Consumption date: 
+if (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; 
 if (date! = null) & (coupon-id = null),it indicates the ordinary consumption date; 
 if (date != null) & (coupon-id != null),,it indicates the coupon consumption date, that is, positive sample.
-|
+
 
 Table2 Users O2O Offline Coupon Usage Prediction Sample
 | Feature|Description|
