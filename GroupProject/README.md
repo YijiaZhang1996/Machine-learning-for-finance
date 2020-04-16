@@ -29,6 +29,7 @@ There are three tables in this project. They are:
 
 > * ccf_offline_stage1_test_revised.csv
 > * ccf_offline_stage1_train.csv
+> * ccf_online_stage1_train.csv
 > * Submit File
 
 Description of each table (including features and explanations) are listed as follows:
