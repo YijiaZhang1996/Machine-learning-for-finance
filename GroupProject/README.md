@@ -65,5 +65,5 @@ This table is used to save prediction result(i.e. Probability) and result submis
 
 # Preparation 
 ## Loading Data
-
+![pic1](./pic/pic/1.png)
 
