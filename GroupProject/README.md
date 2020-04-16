@@ -1,7 +1,7 @@
 # Group Member
 
 >* Zhang Yijia,1801212815,YijiaZhang1996:[GitHub link](https://github.com/YijiaZhang1996)
->* Deng Ying,1801212782,dy0703[GitHub link](https://github.com/dy0703)
+>* Deng Ying,1801212782,dy0703:[GitHub link](https://github.com/dy0703)
 >* Chen Zhuo,1901212461,Igloo7:[GitHub link](https://github.com/Igloo7/Igloo)
 >* Wang Congyuan,1901212637,cy-wang15:[GitHub link](https://github.com/cy-wang15)
 
@@ -54,11 +54,10 @@ Table2 Users O2O Offline Coupon Usage Prediction Sample
 |Date|If (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; if (date! = null) & (coupon-id = null),it indicates the ordinary consumption date; if (date != null) & (coupon-id != null),it indicates the coupon consumption date, that is, positive sample.|
 
 Table3 Submit File
-This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
-
 | Feature|Description|
 | -------- | :----:  |
 | User_id  |  User ID       |
 |Coupon_id |“Null” means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.|
 |Date_received|The date of receiving the coupon.|
 |Probability|The Probability that we need to predict and used for scoring.|
+This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
