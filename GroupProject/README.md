@@ -1,4 +1,4 @@
-# Group Member
+# Group Member & Contribution
 
 |Name|Phone Number|Github|Work|
 | -------- | :----:  |:----:  |:----:  |
@@ -185,7 +185,7 @@ We can see that after adding more features, the training result of the four mode
 
 ![pic6](./pic/pic/6.png)
 
-After several attempts, the best result was obtained by using constructed features and using  LightGBM model. The predicted results were submitted to the tianchi system and scored 0.6150.
+After several attempts, the best result was obtained by using constructed features and using LightGBM model. The predicted results were submitted to the tianchi system and scored 0.6150.
 
 ![pic7](./pic/pic/7.png)
 
