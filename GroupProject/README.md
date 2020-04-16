@@ -22,9 +22,11 @@ Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/infor
 
 
 # Data Description
-There are two main tables in this project. They are:
+There are three tables in this project. They are:
+
 > * ccf_offline_stage1_test_revised.csv
 > * ccf_offline_stage1_train.csv
+> * Submit File
 
 Description of each table (including features and explanations) are listed as follows:
 
@@ -50,3 +52,13 @@ Table2 Users O2O Offline Coupon Usage Prediction Sample
 |Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.|
 |Date_received|	The date of receiving the coupon.|
 |Date|If (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; if (date! = null) & (coupon-id = null),it indicates the ordinary consumption date; if (date != null) & (coupon-id != null),it indicates the coupon consumption date, that is, positive sample.|
+
+Table3 Submit File
+This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
+
+| Feature|Description|
+| -------- | :----:  |
+| User_id  |  User ID       |
+|Coupon_id |“Null” means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.|
+|Date_received|The date of receiving the coupon.|
+|Probability|The Probability that we need to predict and used for scoring.|
