@@ -62,3 +62,8 @@ Table3 Submit File
 |Probability|The Probability that we need to predict and used for scoring.|
 
 This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
+
+# Preparation 
+## Loading Data
+
+
