@@ -16,6 +16,11 @@ In recent years, O2O (Online to Offline) consumption has gradually entered peopl
 
 This project aims to predict users' usage within 15 days after receiving coupons by analyzing and modeling their past offline consumption behaviors, so as to realize personalized coupon delivery. Make consumer gets real benefit, also give businessman stronger sale ability at the same time.
 
+# Data Source
+This project and data are derived from Tianchi Big Data Contest. Tianchi big data contest is a big data modeling contest held by Alibaba group, similar to Kaggle.
+Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/information)
+
+
 # Data Description
 There are two main tables in this project. They are:
 > * ccf_offline_stage1_test_revised.csv
