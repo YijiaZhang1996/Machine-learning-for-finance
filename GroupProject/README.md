@@ -2,7 +2,7 @@
 
 |Name|Phone Number|Github|Work|
 | -------- | :----:  |:----:  |:----:  |
-|Zhang Yijia|1801212815|[YijiaZhang1996](https://github.com/YijiaZhang1996)|Paperwork, Presentation|
+|Zhang Yijia|1801212815|[YijiaZhang1996](https://github.com/YijiaZhang1996)|Paperwork, Do presentation|
 |Deng Ying| 1801212782 |[dy0703](https://github.com/dy0703)| Data Preprocessing, Feature Engineering, Build Model|
 |Chen Zhuo| 1901212461| [Igloo7](https://github.com/Igloo7)|Feature Engineering, Build Model|
 |Wang Congyuan| 1901212637|[cy-wang15](https://github.com/cy-wang15)|Feature Engineering, Build Model|
@@ -25,14 +25,16 @@ Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/infor
 
 
 # Data Description
-There are three tables in this project. They are:
+There are four tables in this project. They are:
 
 > * ccf_offline_stage1_test_revised.csv
 > * ccf_offline_stage1_train.csv
 > * ccf_online_stage1_train.csv
 > * Submit File
 
-Description of each table (including features and explanations) are listed as follows:
+**Note:** ccf_online_staged1_train.csv is not used for our project.
+
+Description of each dataset we used (including features and explanations) are listed as follows:
 
 Table1 Users' Offline Consumption and Coupon Collection Behavior
 | Feature|Description|
