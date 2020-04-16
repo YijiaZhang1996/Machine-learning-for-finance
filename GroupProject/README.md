@@ -124,7 +124,7 @@ Through the user and the merchant's previous behavior, extract new features. Her
 
 Using the existing features, we built the following 10 new features about user behavior, as shown in the following table.
 
-| New Features| Explanations|
+| id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
 |1|u_coupon_count|num of coupon received by user|
 |2|u_buy_count|times of user buy offline (with or without coupon)|
@@ -141,7 +141,7 @@ Using the existing features, we built the following 10 new features about user b
 
 Taking advantage of the existing features, we built the following 9 new features about merchant behavior, as shown in the following table.
 
-| New Features| Explanations|
+| id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
 |1|m_coupon_count |num of coupon from merchant|
 |2|m_sale_count|num of sale from merchant (with or without coupon) |
@@ -157,7 +157,7 @@ Taking advantage of the existing features, we built the following 9 new features
 
 Using the existing features, we matched the user with the merchant, and constructed the following 7 features about the user-merchant interaction, as shown in the following table.
 
-| New Features| Explanations|
+| id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
 |1|um_count |num of user-merchant pair|
 |2|um_buy_count|num of consumption of user-merchant pair |
