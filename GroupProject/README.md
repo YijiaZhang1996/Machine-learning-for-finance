@@ -172,7 +172,7 @@ Using the existing features, we matched the user with the merchant, and construc
 After feature construction, we used new features and the original features for modeling, and the models used were still the four in the previous part. The results are as follows:
 
 
-| | Logistics Regression|Decision Tree|SGDClassifier|LightGBM|
+| |Logistics Regression|Decision Tree|SGDClassifier|LightGBM|
 | --------  | :-----:  | :----:  |:----:  |:----:  |
 |Training accuracy| 0.9125|0.9159 |0.9126|0.9143|
 |Valid Accuracy| 0.9127|0.9142 |0.9130|0.9146|
