@@ -1,7 +1,7 @@
 # Group Member
 
 >* Zhang Yijia,1801212815,YijiaZhang1996:[GitHub link](https://github.com/YijiaZhang1996)
->* Deng Ying,1801212782,dy0703[GitHub link](https://github.com/dy0703)
+>* Deng Ying,1801212782,dy0703:[GitHub link](https://github.com/dy0703)
 >* Chen Zhuo,1901212461,Igloo7:[GitHub link](https://github.com/Igloo7/Igloo)
 >* Wang Congyuan,1901212637,cy-wang15:[GitHub link](https://github.com/cy-wang15)
 
@@ -14,13 +14,19 @@ In recent years, O2O (Online to Offline) consumption has gradually entered peopl
 
 # Research Purpose
 
-This project aims to predict users' usage within 15 days after receiving coupons by analyzing and modeling their past online and offline consumption behaviors, so as to realize personalized coupon delivery. Make consumer gets real benefit, also give businessman stronger sale ability at the same time.
+This project aims to predict users' usage within 15 days after receiving coupons by analyzing and modeling their past offline consumption behaviors, so as to realize personalized coupon delivery. Make consumer gets real benefit, also give businessman stronger sale ability at the same time.
+
+# Data Source
+This project and data are derived from Tianchi Big Data Contest. Tianchi big data contest is a big data modeling contest held by Alibaba group, similar to Kaggle.
+Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/information)
+
 
 # Data Description
 There are three tables in this project. They are:
+
 > * ccf_offline_stage1_test_revised.csv
 > * ccf_offline_stage1_train.csv
-> * ccf_online_stage1_train.csv
+> * Submit File
 
 Description of each table (including features and explanations) are listed as follows:
 
@@ -31,21 +37,12 @@ Table1 Users' Offline Consumption and Coupon Collection Behavior
 |Merchant_id|	Merchant ID
 |Coupon_id|	"Null" means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.
 |Discount_rate|	Represents the discount rate; x: y means x minus y. Unit: Yuan
-|Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.|
-|Date_received|	The date of receiving the coupon.|
-
-Table2 Users' Online Click/Purchase and Coupon Collection Behavior
-| Feature|Description|
-| -------- | :----:  |
-| User_id  |  User ID       |
-|Merchant_id|	Merchant ID
-|Coupon_id|	"Null" means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.
-|Action|0 represents click; 1 represents purchase; 2 represents the coupon is collected. 
-|Discount_rate|	Represents the discount rate; x: y means x minus y. Unit: Yuan
-|Date_received|	The date of receiving the coupon.|
+|Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.
+|Date_received|	The date of receiving the coupon.
 |Date|If (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; if (date! = null) & (coupon-id = null),it indicates the ordinary consumption date; if (date != null) & (coupon-id != null),it indicates the coupon consumption date, that is, positive sample.|
 
-Table3 Users O2O Offline Coupon Usage Prediction Sample
+
+Table2 Users O2O Offline Coupon Usage Prediction Sample
 | Feature|Description|
 | -------- | :----:  |
 | User_id  |  User ID       |
@@ -55,3 +52,18 @@ Table3 Users O2O Offline Coupon Usage Prediction Sample
 |Distance|	The location where the user frequently goes to is 500*x meters away from the nearest store of the merchant (if it is a chain store, the nearest store is taken); null means no such information, and 0 means the distance is less than 500 meters, 10 means the distance is more than 5 kilometers.|
 |Date_received|	The date of receiving the coupon.|
 |Date|If (date = null) & (coupon-id != null), the record indicates that the coupon is collected but not used, that is, negative sample; if (date! = null) & (coupon-id = null),it indicates the ordinary consumption date; if (date != null) & (coupon-id != null),it indicates the coupon consumption date, that is, positive sample.|
+
+Table3 Submit File
+| Feature|Description|
+| -------- | :----:  |
+| User_id  |  User ID       |
+|Coupon_id |“Null” means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.|
+|Date_received|The date of receiving the coupon.|
+|Probability|The Probability that we need to predict and used for scoring.|
+
+This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
+
+# Preparation 
+## Loading Data
+
+
