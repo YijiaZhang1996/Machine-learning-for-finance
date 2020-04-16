@@ -66,4 +66,142 @@ This table is used to save prediction result(i.e. Probability) and result submis
 # Preparation 
 ## Loading Data
 ![pic1](./pic/pic/1.png)
+## Data Preview
+We need to give coupon to those with consumption and without coupon. The amount of these people is 701602.
+![pic2](./pic/pic/2.png)
+## Data Preprocessing
+The data contains missing values, which are filled in using  ‘fillna()’ method in Python.
+![pic3](./pic/pic/3.png)
+
+
+# Modeling with Existing Features
+## Feature Engineering
+First, we use original features to train models. We have 6 features and 1 label.
+Label is defined by Date and Date_received together, and six features are User_id, Merchant_id, Coupon_id, Discount_rate, Distance and Date_received, respectively. The first three features are the identification features, so we only consider to process the last three features.
+### Discount_rate
+The original expression of the discount rate is xx:yy, which means that $yy can be reduced if the consumption reaches $xx. Here we use four new features to represent the discount rate.
+* Discount_rate：1-yy/xx
+* Discount_threshold: the threshold that users get discount, i.e. xx
+* Discount_minus: the discount amount obtained by users, i.e. yy
+* Discount_type: 1(get discount) or 0(don’t get discount)
+### Distance
+If distance data is missing, let it be -1.
+### Date_received
+Extract features of weekday based on the date users received the coupons. Here we create 9 new features:
+* Weekday：Used to describe the day
+* Weekday_type：Used to describe whether it is a working day. If the date is weekday, weekday_type=0. If the date is weekend, weekday_type=1.
+* Weekday1.0-Weekday7.0：Dummy variables used to describe weekday, for example, for Monday, Weekday1.0=1，others are 0
+### Label(y)
+* Date_received == 'null' means the person did not receive a coupon, we don't need to consider it, so y = -1.
+* (Date_received != 'null') & (Date != 'null') & (Date - Date_received <= 15) means the person received the coupon and used it within 15 days, which is our positive sample, so y = 1.
+* (Date_received != 'null') & ((Date == 'null') | (Date - Date_received > 15)) means the person received the coupon but didn't use it within 15 days, which is our negative sample, so y = 0.
+![pic4](./pic/pic/4.png)
+
+After feature engineering , the features of the data set are shown below, with 21 training features and a label.
+
+![pic5](./pic/pic/5.png)
+
+## Model Training
+We use 4 models: Logistics Regression，Decision Tree，SGDClassifier，LightGBM to fit the data. The results are as follows.
+
+|         | Logistics Regression   |  Decision Tree  | SGDClassifier | LightGBM |
+| --------  | :-----:  | :----:  | :----:  | :----:  |
+| Training accuracy     | 0.9481 |   0.9482    | 0.9480| 0.9481|
+| Valid Accuracy       |   0.9090   |   0.9090   |0.9090 | 0.9090|
+| AUC        |    0.5325    |  0.5394  |0.5234 | 0.5508|
+
+We can see that model result is not very good, with low Accuracy and AUC values. Four models were used to predict the test set respectively, and the predicted results of the test set were submitted to the Tianchi system. The accuracy scores are only 0.52 to 0.53.
+
+We think we need to expand data dimensions to better describe behavior of uses and merchant, so we want to construct some new features based on the existing features.
+
+# Modeling with New Features
+
+## Features Engineering/Features Construction
+
+Through the user and the merchant's previous behavior, extract new features. Here, the data from 20160101 to 20160515 are used to extract features, and the data from 20160516-20160615 are used as the training set.
+
+### User Features
+
+Using the existing features, we built the following 10 new features about user behavior, as shown in the following table.
+
+| New Features| Explanations|
+| --------  | :-----:  | :----:  |
+|1|u_coupon_count|num of coupon received by user|
+|2|u_buy_count|times of user buy offline (with or without coupon)|
+|3|u_buy_with_coupon|times of user buy offline (with coupon)|
+|4|u_merchant_count|num of merchant user bought from|
+|5|u_min_distance|min distance of purchase with coupon|
+|6|u_max_distance|max distance of purchase with coupon|
+|7|u_mean_distance|mean distance of purchase with coupon|
+|8|u_median_distance|median distance of purchase with coupon|
+|9|u_use_coupon_rate|T\the rate of coupons used in each user's consumption|
+|10|u_buy_with_coupon_rate|the rate of coupons used in each user's offline consumption|
+
+### Merchant Features
+
+Taking advantage of the existing features, we built the following 9 new features about merchant behavior, as shown in the following table.
+
+| New Features| Explanations|
+| --------  | :-----:  | :----:  |
+|1|m_coupon_count |num of coupon from merchant|
+|2|m_sale_count|num of sale from merchant (with or without coupon) |
+|3|m_sale_with_coupon|num of sale from merchant with coupon usage|
+|4|m_min_distance|the min user distance to the merchant|
+|5|m_max_distance|the max user distance to the merchant|
+|6|m_mean_distance|the mean user distance to the merchant|
+|7|m_median_distance|the median user distance to the merchant|
+|8|m_coupon_use_rate|the rate of coupons used in each user's consumption|
+|9|m_sale_with_coupon_rate|The rate of coupons used in each user's offline consumption|
+
+### User-Merchant Features
+
+Using the existing features, we matched the user with the merchant, and constructed the following 7 features about the user-merchant interaction, as shown in the following table.
+
+| New Features| Explanations|
+| --------  | :-----:  | :----:  |
+|1|um_count |num of user-merchant pair|
+|2|um_buy_count|num of consumption of user-merchant pair |
+|3|um_coupon_count|num of coupon of user-merchant pair|
+|4|um_buy_with_coupon|num of consumption using coupon of user-merchant pair|
+|5|um_buy_rate|um_buy_count/um_count|
+|6|um_coupon_use_rate|the rate of coupons used in each user's consumption|
+|7|um_buy_with_coupon_rate|the rate of coupons used in each user's offline consumption|
+
+## Model Training
+
+After feature construction, we used new features and the original features for modeling, and the models used were still the four in the previous part. The results are as follows:
+
+
+| | Logistics Regression|Decision Tree|SGDClassifier|LightGBM|
+| --------  | :-----:  | :----:  |:----:  |:----:  |
+|Training accuracy| 0.9125|0.9159 |0.9126|0.9143|
+|Valid Accuracy| 0.9127|0.9142 |0.9130|0.9146|
+|AUC| 0.6441|0.6108 |0.6227|0.6364|
+
+We can see that after adding more features, the training result of the four models is greatly improved. When submitting prediction result to Tianchi system, the accuracy of prediction results of the four models was found to be improved. The figure below are results of LightGBM-SGDClassifier-Decision-Tree Logistics Regression from top to bottom.
+
+![pic6](./pic/pic/6.png)
+
+After several attempts, the best result was obtained by using constructed features and using  LightGBM model. The predicted results were submitted to the tianchi system and scored 0.6150.
+
+![pic7](./pic/pic/7.png)
+
+# Further Work
+
+* Try other models to improve the modeling effect
+* Explore more feature dimensions
+
+# Data and Code Instructions
+
+All the data and code are in this [folder](https://github.com/YijiaZhang1996/PHBS_MLF_2019/edit/master/GroupProject).
+
+Download mlf_project.zip, run prediction_of_test_data directly. The other three files will be called in order to get prediction results and output submit.csv file for result submission.
+
+![pic8](./pic/pic/8.png)
+
+
+
+
+
+
 
