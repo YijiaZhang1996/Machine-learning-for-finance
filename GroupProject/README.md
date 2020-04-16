@@ -1,7 +1,7 @@
 # Group Member
 
 |Name|Phone Number|Github|Work|
-| -------- | :----:  |:----:  |
+| -------- | :----:  |:----:  |:----:  |
 |Zhang Yijia|1801212815|[YijiaZhang1996](https://github.com/YijiaZhang1996)|Paperwork, Presentation|
 |Deng Ying| 1801212782 |[dy0703](https://github.com/dy0703)| Data Preprocessing, Feature Engineering, Build Model|
 |Chen Zhuo| 1901212461| [Igloo7](https://github.com/Igloo7/Igloo)|Feature Engineering, Build Model|
