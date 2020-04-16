@@ -60,4 +60,5 @@ Table3 Submit File
 |Coupon_id |“Null” means there is no coupon consumption, and the Discount_rate and Date_received fields are meaningless in this situation.|
 |Date_received|The date of receiving the coupon.|
 |Probability|The Probability that we need to predict and used for scoring.|
+
 This table is used to save prediction result(i.e. Probability) and result submission. After submitting it to Tianchi Scoring system, you can get score for your model.
