@@ -72,7 +72,7 @@ print('End tree model .')
 
 # SGDC
 print('Start sgdc model :')
-from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDClassifier 
 pipe_sgdc = make_pipeline(StandardScaler(),SGDClassifier(loss='modified_huber',penalty = 'elasticnet'))# loss:hinge,log,modified_huber ; penalty: l1,l2,elasticnet
 pipe_sgdc.fit(X_train, y_train)
 y_pred_sgdc = pipe_sgdc.predict(X_valid)
@@ -82,7 +82,7 @@ print('    AUC value of sgdc : ',AUC_calculate(pipe_sgdc,valid,X_valid))
 print('End sgdc model .')
 
 ## LGB
-print('Start lgb model :')
+print('Start lgb model :')       
 import lightgbm as lgb
 
 lgb_ = lgb.LGBMClassifier(
