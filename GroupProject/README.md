@@ -112,9 +112,9 @@ We use 4 models: Logistics Regression，Decision Tree，SGDClassifier，LightGBM
 
 |         | Logistics Regression   |  Decision Tree  | SGDClassifier | LightGBM |
 | --------  | :-----:  | :----:  | :----:  | :----:  |
-| Training accuracy     | 0.9481 |   0.9482    | 0.9480| 0.9481|
-| Valid Accuracy       |   0.9090   |   0.9090   |0.9090 | 0.9090|
-| AUC        |    0.5325    |  0.5394  |0.5234 | 0.5508|
+| Training accuracy     | 0.90961322 |   0.90961844    | 0.909| 0.9481|
+| Valid Accuracy       |   0.90962005   |   0.90959998   |0.90962005 | 0.90962005|
+| AUC        |    0.5373    |  0.5584  |0.5388 | 0.5387|
 |Parameters|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|criterion='gini'<br>max_depth=100<br>random_state=1|loss='modified_huber'<br>penalty = 'elasticnet'|learning_rate = 0.01<br>boosting_type = 'gbdt'<br>objective = 'binary'<br>metric = 'logloss'<br>max_depth = 7<br>sub_feature = 0.7<br>num_leaves = 3<br>colsample_bytree = 0.7<br>n_estimators = 5000<br>early_stop = 50<br>verbose = -1|
 
 
