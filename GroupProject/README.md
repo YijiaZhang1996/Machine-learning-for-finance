@@ -185,6 +185,7 @@ After feature construction, we used new features and the original features for m
 |Training accuracy| 0.9125|0.9159 |0.9126|0.9143|
 |Valid Accuracy| 0.9127|0.9142 |0.9130|0.9146|
 |AUC| 0.6441|0.6108 |0.6227|0.6364|
+|Parameters|random_state=1<br>penalty ='l1'<br>solver = 'liblinear'|criterion='gini'<br>max_depth=7<br>random_state=1|loss='modified_huber'<br>penalty = 'elasticnet'|learning_rate = 0.005<br>       boosting_type = 'gbdt'<br>objective = 'binary'<br>metric = 'logloss'<br>max_depth = 7<br>sub_feature = 0.7<br>num_leaves = 10<br>colsample_bytree = 0.7<br>min_data_in_leaf =10<br>n_estimators = 500<br>early_stop = 50<br>verbose = -1<br>feature_fraction= 0.7|
 
 We can see that after adding more features, the training result of the four models is greatly improved. When submitting prediction result to Tianchi system, the accuracy of prediction results of the four models was found to be improved. The figure below are results of LightGBM-SGDClassifier-Decision-Tree Logistics Regression from top to bottom.
 
