@@ -2,11 +2,11 @@
 
 |Name|Phone Number|Github|Work|
 | -------- | :----:  |:----:  |:----:  |
-|Zhang Yijia|1801212815|[YijiaZhang1996](https://github.com/YijiaZhang1996)|Paperwork, Do presentation|
+|Zhang Yijia|1801212815|[YijiaZhang1996](https://github.com/YijiaZhang1996)|Paperwork, Do Presentation|
 |Deng Ying| 1801212782 |[dy0703](https://github.com/dy0703)| Data Preprocessing, Feature Engineering|
 |Chen Zhuo| 1901212461| [Igloo7](https://github.com/Igloo7)|Feature Engineering, Build Model|
 |Wang Congyuan| 1901212637|[cy-wang15](https://github.com/cy-wang15)|Feature Engineering, Build Model|
-
+PS. For convenience and to avoid confusion, Zhang Yijia and Wang Congyuan mainly commit to the project in Github，but the project was completed by all team members together and everyone's workload is basically the same. Therefore, the number of commits does not represent our workload.
 
 # Research Topic
 O2O Coupon Consumption Prediction Based on Past Consumer Behavior 
@@ -127,11 +127,13 @@ We think we need to expand data dimensions to better describe behavior of uses a
 
 ## Features Engineering/Features Construction
 
-Through the user and the merchant's previous behavior, extract new features. Here, the data from 20160101 to 20160515 are used to extract features, and the data from 20160516-20160615 are used as the training set.
+Feature engineering is the process of generating data that can be modeled from the original data. Its essence is an engineering activity. The purpose is to extract features from the original data reductively for use by algorithms and models. It can capture more complex relationships and make the model easier to interpret.The previous three features only mix all customers and merchants without identifying their individual behaviors. The results of such a model are not very good, so we refer to some articles and intend to construct some individual-size features for modeling. Data from 20160101 to 20160515 are used to extract features, and the data from 20160516-20160615 are used as the training set.
 
 ### User Features
 
-Using the existing features, we built the following 10 new features about user behavior, as shown in the following table.
+The purpose of constructing these features is that we hope to describe the user's behavior in more detail, including the user's normal consumption behavior, the actual receipt of the coupons and the use of the coupons. (1) For normal consumption behavior, we construct u_buy_count and u_merchant_count to represent the number of coupons received by users. (2) For the reception of a coupon, we construct the u_coupon_count variable, which is used to describe the number of coupons received by the user.  (3) For the use of user coupons, we constructed a number of variables, describing the number of consumer coupons used by the user, the discount level of the consumer coupon, the distance between the merchant using the coupon and the user, etc.
+
+Using the existing features, we construct 10 new features, as shown in the following table.
 
 | id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
@@ -148,7 +150,9 @@ Using the existing features, we built the following 10 new features about user b
 
 ### Merchant Features
 
-Taking advantage of the existing features, we built the following 9 new features about merchant behavior, as shown in the following table.
+Similar to the previous part, we also construct some new features to describe the behavior of the merchants. The characteristics are mainly divided into two aspects: merchants’ sales behavior and the handing out and usage of merchants' coupons. (1) For the merchant's sales behavior, we construct a variable that describes the merchant's total sales. (2) For the relevant situation of merchants' coupons, we construct new variables to describe the number of coupons handed out by the merchants, the distance between the users who use the coupons and the merchants, and the sales brought by the coupons.
+
+With the existing features, we construct the following 9 new features about merchant behavior, as shown in the following table.
 
 | id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
@@ -164,7 +168,9 @@ Taking advantage of the existing features, we built the following 9 new features
 
 ### User-Merchant Features
 
-Using the existing features, we matched the user with the merchant, and constructed the following 7 features about the user-merchant interaction, as shown in the following table.
+Finally, we construct some characteristics to describe  interaction between user and merchant. First of all, we want to identify the number of user-merchant pairs and the total number of purchases between them. Then we want to construct some variables to describe the usage of coupon between users and merchants, such as the consumption times of coupon, the proportion of the coupon consumption to the total consumption, and so on.
+
+Using the existing features, we construct the following 7 features about the user-merchant interaction, as shown in the table.
 
 | id|New Features| Explanations|
 | --------  | :-----:  | :----:  |
