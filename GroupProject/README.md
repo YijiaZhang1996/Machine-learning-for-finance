@@ -115,6 +115,8 @@ We use 4 models: Logistics Regression，Decision Tree，SGDClassifier，LightGBM
 | Training accuracy     | 0.9481 |   0.9482    | 0.9480| 0.9481|
 | Valid Accuracy       |   0.9090   |   0.9090   |0.9090 | 0.9090|
 | AUC        |    0.5325    |  0.5394  |0.5234 | 0.5508|
+|Parameters|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|
+
 
 We can see that model result is not very good, with low Accuracy and AUC values. Four models were used to predict the test set respectively, and the predicted results of the test set were submitted to the Tianchi system. The accuracy scores are only 0.52 to 0.53.
 
@@ -192,10 +194,10 @@ After several attempts, the best result was obtained by using constructed featur
 
 ![pic7](./pic/pic/7.png)
 
-# Further Work
-
-* Try other models to improve the modeling effect
-* Explore more feature dimensions
+# Reference
+1.Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/information)
+2.Example Project from Alibaba: [link](https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.29285bbcdiUB0a&postId=4796)
+3.Example Project from Technical Blog：[link](https://www.meiwen.com.cn/subject/nbuwqqtx.html)
 
 # Data and Code Instructions
 
