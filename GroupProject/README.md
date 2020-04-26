@@ -199,9 +199,10 @@ After several attempts, the best result was obtained by using constructed featur
 ![pic7](./pic/pic/7.png)
 
 # Reference
-1.Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/information)
-2.Example Project from Alibaba: [link](https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.29285bbcdiUB0a&postId=4796)
-3.Example Project from Technical Blog：[link](https://www.meiwen.com.cn/subject/nbuwqqtx.html)
+> * Data Source: [link](https://tianchi.aliyun.com/competition/entrance/231593/information)
+> * Example Project from Alibaba: [link](https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.29285bbcdiUB0a&postId=4796)
+> * Example Project from Technical Blog：[link](https://www.meiwen.com.cn/subject/nbuwqqtx.html)
+> * Example Project from Github：[link](https://github.com/wepe/O2O-Coupon-Usage-Forecast)
 
 # Data and Code Instructions
 
