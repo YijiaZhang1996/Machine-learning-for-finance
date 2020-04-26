@@ -113,10 +113,11 @@ We use 4 models: Logistics Regression，Decision Tree，SGDClassifier，LightGBM
 |         | Logistics Regression   |  Decision Tree  | SGDClassifier | LightGBM |
 | --------  | :-----:  | :----:  | :----:  | :----:  |
 | Training accuracy     | 0.90961322 |   0.90961844    | 0.909| 0.9481|
-| Valid Accuracy       |   0.90962005   |   0.90959998   |0.90962005 | 0.90962005|
+| Validation Accuracy       |   0.90962005   |   0.90959998   |0.90962005 | 0.90962005|
 | AUC        |    0.5373    |  0.5584  |0.5388 | 0.5387|
 |Parameters|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|criterion='gini'<br>max_depth=100<br>random_state=1|loss='modified_huber'<br>penalty = 'elasticnet'|learning_rate = 0.01<br>boosting_type = 'gbdt'<br>objective = 'binary'<br>metric = 'logloss'<br>max_depth = 7<br>sub_feature = 0.7<br>num_leaves = 3<br>colsample_bytree = 0.7<br>n_estimators = 5000<br>early_stop = 50<br>verbose = -1|
 
+Accuracy of the four models are close, so we mainly compare the AUC. Among all models, LightGBM model best fits the data, with the highest AUC of 0.5508. This also makes sense in reality. LightGBM is improved based on decision tree. It integrates several weak classifiers into one strong classifier, which performs better than general classifier. Meanwhile, we reasonably controlled parameters such as the depth of the tree (max_depth = 7) and the number of leaves (num_leaves = 3) to avoid overfitting. Therefore, using LightGBM gives the best results.
 
 We can see that model result is not very good, with low Accuracy and AUC values. Four models were used to predict the test set respectively, and the predicted results of the test set were submitted to the Tianchi system. The accuracy scores are only 0.52 to 0.53.
 
@@ -183,9 +184,11 @@ After feature construction, we used new features and the original features for m
 | |Logistics Regression|Decision Tree|SGDClassifier|LightGBM|
 | --------  | :-----:  | :----:  |:----:  |:----:  |
 |Training accuracy| 0.9125|0.9159 |0.9126|0.9143|
-|Valid Accuracy| 0.9127|0.9142 |0.9130|0.9146|
+|Validation Accuracy| 0.9127|0.9142 |0.9130|0.9146|
 |AUC| 0.6441|0.6108 |0.6227|0.6364|
 |Parameters|random_state=1<br>penalty ='l1'<br>solver = 'liblinear'|criterion='gini'<br>max_depth=7<br>random_state=1|loss='modified_huber'<br>penalty = 'elasticnet'|learning_rate = 0.005<br>       boosting_type = 'gbdt'<br>objective = 'binary'<br>metric = 'logloss'<br>max_depth = 7<br>sub_feature = 0.7<br>num_leaves = 10<br>colsample_bytree = 0.7<br>min_data_in_leaf =10<br>n_estimators = 500<br>early_stop = 50<br>verbose = -1<br>feature_fraction= 0.7|
+
+When comparing the model effect, we comprehensively consider two indexes: Accuracy and AUC. Generally speaking, Logistics Regression Model and LightGBM model fit the data well. In Logistic Regression model, we choose L1 regularization, because the data dimension is high, L1 regularization can reduce the number of components to 0, resulting in more sparse results. Therefore, it is more suitable for high dimensional data, and the result is better. The performance of LightGBM model is relatively stable, no matter the data dimension is high or low. Because the LightGBM model is a strong classifier formed by the combination of several weak classifiers, and we use appropriate overfitting control, such as controlling the depth of the tree (max_depth = 7), the number of leaves (num_leaves = 10), etc., so LightGBM fits the data well.
 
 We can see that after adding more features, the training result of the four models is greatly improved. When submitting prediction result to Tianchi system, the accuracy of prediction results of the four models was found to be improved. The figure below are results of LightGBM-SGDClassifier-Decision-Tree Logistics Regression from top to bottom.
 
