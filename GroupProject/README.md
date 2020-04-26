@@ -115,7 +115,9 @@ We use 4 models: Logistics Regression，Decision Tree，SGDClassifier，LightGBM
 | Training accuracy     | 0.9481 |   0.9482    | 0.9480| 0.9481|
 | Valid Accuracy       |   0.9090   |   0.9090   |0.9090 | 0.9090|
 | AUC        |    0.5325    |  0.5394  |0.5234 | 0.5508|
-|Parameters|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|
+|Parameters|penalty = 'l1'<br>solver= 'liblinear'<br>random_state=1|criterion='gini'<br>max_depth=100<br>random_state=1|loss='modified_huber'<br>penalty = 'elasticnet'
+|learning_rate = 0.01<br>boosting_type = 'gbdt'<br>objective = 'binary'<br>metric = 'logloss'<br>max_depth = 7<br>sub_feature = 0.7<br>
+num_leaves = 3<br>colsample_bytree = 0.7<br>n_estimators = 5000<br>early_stop = 50<br>verbose = -1|
 
 
 We can see that model result is not very good, with low Accuracy and AUC values. Four models were used to predict the test set respectively, and the predicted results of the test set were submitted to the Tianchi system. The accuracy scores are only 0.52 to 0.53.
